@@ -13,10 +13,13 @@ except:
     print('Please enter a number')
 
     #provision for time and a half if more than 40 hrs worked
-    if hours>40:
-        rate *=1.5
+if hours>40:
+   rate *=1.5
+
+else: rate *=1
 
 pay = hours * rate
+
 
 print('Pay = ', str(pay))
 
