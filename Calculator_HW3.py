@@ -2,6 +2,7 @@ __author__ = 'sco-lo-pro'
 #call the math package
 import math
 
+#establish try/except to catch user errors
 try:
 #welcome user and present main menu
     inp= int(input("Welcome to the calculator! Please select from the following menu;\n"
@@ -18,11 +19,18 @@ try:
                 "Please make your selection: "))
 #multi-way statement to determine operation
     if inp== 1:
+        #instructions for user
         print("The addition Operator needs two operands")
-        operands=input("Please enter two operands, separated by a comma")
+        #create string object to capture operands
+        operands=str(input("Please enter two operands, separated by a comma"))
+        if operands.find(',')== -1:
+            print("Didn't I tell you to enter two operands separated by a comma? Goodbye.")
+            quit()
         #extracts location of the comma and creates two placeholders for locations
         pos= operands.find(",")
+        #identify location where first operand ends
         pos1= pos
+        #identify location where first operand begins
         pos2= pos+ 1
         #extracts numbers from string and converts string to float
         operand1=float(operands[:pos1])
@@ -34,6 +42,9 @@ try:
     elif inp== 2:
         print("The subtraction Operator needs two operands")
         operands=input("Please enter two operands, separated by a comma")
+        if operands.find(',')== -1:
+            print("Didn't I tell you to enter two operands separated by a comma? Goodbye.")
+            quit()
         pos= operands.find(",")
         pos1= pos
         pos2= pos+ 1
@@ -44,6 +55,9 @@ try:
     elif inp== 3:
         print("The Multiplication Operator needs two operands")
         operands=input("Please enter two operands, separated by a comma")
+        if operands.find(',')== -1:
+            print("Didn't I tell you to enter two operands separated by a comma? Goodbye.")
+            quit()
         pos= operands.find(",")
         pos1= pos
         pos2= pos+ 1
@@ -54,6 +68,9 @@ try:
     elif inp== 4:
         print("The Division Operator needs two operands")
         operands=input("Please enter two operands, separated by a comma")
+        if operands.find(',')== -1:
+            print("Didn't I tell you to enter two operands separated by a comma? Goodbye.")
+            quit()
         pos= operands.find(",")
         pos1= pos
         pos2= pos+ 1
@@ -64,6 +81,9 @@ try:
     elif inp== 5:
         print("The Power Operator needs two operands")
         operands=input("Please enter two operands, separated by a comma")
+        if operands.find(',')== -1:
+            print("Didn't I tell you to enter two operands separated by a comma? Goodbye.")
+            quit()
         pos= operands.find(",")
         pos1= pos
         pos2= pos+ 1
@@ -74,6 +94,9 @@ try:
     elif inp== 6:
         print("The Min Operator needs two operands")
         operands=input("Please enter two operands, separated by a comma")
+        if operands.find(',')== -1:
+            print("Didn't I tell you to enter two operands separated by a comma? Goodbye.")
+            quit()
         pos= operands.find(",")
         pos1= pos
         pos2= pos+ 1
@@ -84,6 +107,9 @@ try:
     elif inp== 7:
         print("The Max Operator needs two operands")
         operands=input("Please enter two operands, separated by a comma")
+        if operands.find(',')== -1:
+            print("Didn't I tell you to enter two operands separated by a comma? Goodbye.")
+            quit()
         pos= operands.find(",")
         pos1= pos
         pos2= pos+ 1
@@ -94,18 +120,27 @@ try:
     elif inp== 8:
         print("The Square Root Operator needs one operand")
         operands=input("Please enter one operand.")
+        if operands.find(',')!= -1:
+            print("Didn't I tell you to enter ONLY one operand? Goodbye.")
+            quit()
         operand1=float(operands)
         result= round(math.sqrt(operand1), 3)
         print("The output of the Square Root Operation is: ", result)
     elif inp== 9:
         print("The Exponent Operator needs one operand")
         operands=input("Please enter one operand.")
+        if operands.find(',')!= -1:
+            print("Didn't I tell you to enter ONLY one operand? Goodbye.")
+            quit()
         operand1=float(operands)
         result= round(math.exp(operand1), 3)
         print("The output of the Exponent Operation is: ", result)
     elif inp== 10:
         print("The Exponent Operator needs one operand")
         operands=input("Please enter one operand.")
+        if operands.find(',')!= -1:
+            print("Didn't I tell you to enter ONLY one operand? Goodbye.")
+            quit()
         operand1=float(operands)
         result= round(math.sin(operand1), 3)
         print("The output of the Sin Operation is: ", result)
@@ -125,6 +160,10 @@ except IndexError:
 except ArithmeticError:
     print("ERROR: Can't divide by zero. And stuff. You know that.")
     quit()
+except RuntimeError:
+    print("Error: Encountered a Run Time Error.")
+    quit()
+
 
 
 
